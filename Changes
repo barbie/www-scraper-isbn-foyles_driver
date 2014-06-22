@@ -1,7 +1,9 @@
 Revision history for WWW-Scraper-ISBN-Foyles_Driver
 ===================================================
 
-0.12    2014-06-16
+        - changed error handling if missing form.
+
+0.12    2014-06-17
         - accidentally updated the wrong line in Makefile.PL.
 
 0.11    2014-06-15
