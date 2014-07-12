@@ -120,7 +120,7 @@ sub search {
 		if($html =~ m!I'm sorry we have encountered a problem with this page!si);
 
 	return $self->handler("Failed to find that book on the Foyles website. [$isbn]")
-		if($html =~ m!Sorry, there are no results for!si);
+		if($html =~ m!Sorry, there are no results for|This item is not currently listed on the Foyles Website!si);
     
     $html =~ s/&amp;/&/g;
     $html =~ s/&nbsp;/ /g;
