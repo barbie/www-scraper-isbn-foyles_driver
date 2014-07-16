@@ -1,7 +1,8 @@
 Revision history for WWW-Scraper-ISBN-Foyles_Driver
 ===================================================
 
-        - website have new error message when book not found.
+0.14    2014-07-16
+        - website has new error message when book not found.
         - extended test suite.
 
 0.13    2014-07-01
