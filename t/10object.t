@@ -68,9 +68,9 @@ SKIP: {
         like($@,qr/Invalid ISBN specified/);
     }
 
-    for my $isbn (keys %tests) {
+    for $isbn (keys %tests) {
         eval { $record = $scraper->search($isbn) };
-        my $error  = $@ || $record->error || '';
+        my $error = $@ || $record->error || '';
 
         unless($record && $record->found) {
             diag("Failed to create record: $error");
