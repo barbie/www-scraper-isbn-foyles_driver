@@ -72,16 +72,16 @@ SKIP: {
         eval { $record = $scraper->search($isbn) };
         my $error = $@ || $record->error || '';
 
-        unless($record && $record->found) {
-            diag("Failed to create record: $error");
-            next;
-        }
-
         SKIP: {
             skip "Website unavailable", scalar(@{ $tests{$isbn} }) + 2   
                 if($error =~ /website appears to be unavailable/);
             skip "Book unavailable", scalar(@{ $tests{$isbn} }) + 2   
                 if($error =~ /Failed to find that book/ || !$record->found);
+
+            unless($record && $record->found) {
+                diag("Failed to create record: $error");
+                next;
+            }
 
             is($record->found,1);
             is($record->found_in,$DRIVER);
